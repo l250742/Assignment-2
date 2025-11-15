@@ -1,0 +1,429 @@
+/* =========================================================
+   styles.css — LanguageLift (High-Contrast, Responsive)
+   Organized: variables → base → layout → components → forms → utilities → responsive
+   ========================================================= */
+
+/* 1. VARIABLES */
+:root {
+  /* Colors (high contrast) */
+  --primary: #4A148C;      /* deep purple */
+  --accent:  #FFC107;      /* vivid yellow */
+  --bg:      #FAFAFA;      /* light background */
+  --card:    #FFFFFF;      /* white card bg */
+  --text:    #111111;      /* near-black text */
+  --muted:   #6B6B6B;      /* muted text */
+
+  /* Spacing */
+  --gap-xs: 0.5rem;
+  --gap-sm: 1rem;
+  --gap-md: 2rem;
+  --gap-lg: 3rem;
+
+  /* Radii & shadows */
+  --radius: 12px;
+  --shadow-sm: 0 4px 8px rgba(0,0,0,0.08);
+  --shadow-md: 0 10px 20px rgba(0,0,0,0.12);
+
+  /* Typography */
+  --font-sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --h1-size: 2.25rem;
+  --h2-size: 1.5rem;
+  --line-height: 1.5;
+}
+
+/* 2. RESET & BASE */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: var(--line-height);
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+/* Accessibility: visible focus for keyboard users */
+:focus { outline: 3px solid transparent; outline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--accent); border-radius: 6px; }
+
+/* 3. HEADER & NAV */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap-sm) var(--gap-md);
+  background: var(--primary);
+  color: var(--card);
+  position:sticky;
+  top: 0;
+  z-index: 40;
+  box-shadow: var(--shadow-sm);
+}
+
+.logo { font-weight: 700; font-size: 1.25rem; letter-spacing: 0.2px; }
+
+nav ul {
+  display: flex;
+  gap: var(--gap-sm);
+  align-items: center;
+}
+
+nav a {
+  color: var(--card);
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+nav a:hover,
+nav a:focus-visible { background: rgba(255,255,255,0.08); text-decoration: none; }
+
+/* 4. HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-lg);
+  align-items: center;
+  padding: var(--gap-lg) var(--gap-md);
+  background: linear-gradient(135deg, var(--primary), #7b1fa2);
+  color: var(--card);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  margin-bottom: var(--gap-md);
+}
+
+.hero-text h1 {
+  font-size: clamp(1.6rem, 2vw + 1.25rem, 2.6rem);
+  margin-bottom: var(--gap-sm);
+  line-height: 1.08;
+}
+
+.hero-text p {
+  color: rgba(255,255,255,0.92);
+  margin-bottom: var(--gap-md);
+  font-size: 1.05rem;
+}
+
+/* CTA Button */
+.btn {
+  display: inline-block;
+  background: var(--card);
+  color: var(--primary);
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s ease, background 0.22s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-4px);
+  background: var(--accent);
+  color: #111;
+}
+
+/* hero image */
+.hero-image { display: flex; justify-content: center; align-items: center; }
+.hero-image img { max-width: 460px; width: 100%; border-radius: 8px; box-shadow: var(--shadow-md); transform-origin: center; animation: float 6s ease-in-out infinite; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* 5. FEATURES */
+.features { padding: var(--gap-lg) var(--gap-md); text-align: center; }
+.features h2 { font-size: var(--h2-size); margin-bottom: var(--gap-md); color: var(--primary); }
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gap-md);
+}
+
+.feature-card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-align: left;
+  cursor: default;
+}
+
+.feature-card:hover,
+.feature-card:focus-within { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+
+.feature-card .icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+
+/* 6. LANGUAGES */
+.languages { padding: var(--gap-lg) var(--gap-md); text-align: center; }
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--gap-sm);
+  margin-top: var(--gap-sm);
+}
+
+.language-card {
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid var(--primary);
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+  text-align: center;
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.language-card:hover,
+.language-card:focus { transform: translateY(-6px); border-color: var(--accent); }
+
+/* 7. WHY CHOOSE */
+.why-choose { padding: var(--gap-lg) var(--gap-md); background: #fff7f0; text-align: center; }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gap-md);
+  margin-top: var(--gap-md);
+}
+
+.why-card {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.why-card:hover,
+.why-card:focus-within { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+
+/* PLANS */
+.plans {
+  padding: var(--gap-lg) var(--gap-md);
+  text-align: center;
+}
+
+.plans-intro {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.plan-grid {
+  margin-top: var(--gap-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--gap-md);
+}
+
+.plan-card {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: 0.3s ease;
+  text-align: left;
+}
+
+.plan-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+}
+
+.plan-card h3 {
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.plan-card ul {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+
+.plan-card ul li {
+  margin-bottom: 0.6rem;
+  color: #444;
+}
+
+/* Highlight the Pro plan as the recommended plan */
+.highlight {
+  border: 3px solid var(--accent);
+  transform: scale(1.02);
+}
+
+/* Optional: Premium styling */
+.premium {
+  border-top: 4px solid var(--primary);
+}
+
+/* 9. SIGNUP FORM */
+.signup { padding: var(--gap-lg) var(--gap-md); }
+.signup h2 { text-align: center; color: var(--primary); margin-bottom: var(--gap-sm); }
+
+form {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: var(--gap-sm);
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Make labels span full width when needed */
+.form-group { display: flex; flex-direction: column; grid-column: 1 / -1; }
+
+label { font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  padding: 0.6rem;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text);
+  background: #fff;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 6px 12px rgba(255,193,7,0.12);
+  outline: none;
+}
+
+/* Radio & check groups (span full width) */
+fieldset { border: none; padding: 0; margin: 0; grid-column: 1 / -1; }
+fieldset legend { font-weight: 700; margin-bottom: 0.35rem; color: var(--text); }
+
+/* Inline inputs */
+.form-inline { display: flex; gap: var(--gap-sm); align-items: center; flex-wrap: wrap; }
+
+/* Make some fields span half width on larger screens */
+.form-half { grid-column: span 1; }
+.form-full { grid-column: 1 / -1; }
+
+/* Submit button */
+.btn-submit {
+  grid-column: 1 / -1;
+  justify-self: start;
+  background: var(--primary);
+  color: var(--card);
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.btn-submit:hover,
+.btn-submit:focus-visible {
+  transform: translateY(-4px);
+  background: var(--accent);
+  color: #111;
+}
+
+/* 8. FAQS (details/summary) */
+.faqs { padding: var(--gap-lg) var(--gap-md); text-align: center; }
+.faqs details {
+  background: var(--card);
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  margin-bottom: var(--gap-sm);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.faqs details[open] { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+
+.faqs summary {
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+}
+.faqs summary::-webkit-details-marker { display: none; } /* hide default marker */
+
+.faqs details p {
+  padding: 0.75rem 1rem 1rem;
+  margin: 0;
+  color: var(--muted);
+}
+
+/* 10. FOOTER */
+footer {
+  background: var(--primary);
+  color: var(--card);
+  text-align: center;
+  padding: var(--gap-sm) var(--gap-md);
+  margin-top: var(--gap-md);
+}
+
+/* 11. UTILITY CLASSES */
+.center { display: block; margin-left: auto; margin-right: auto; }
+.hidden { position: absolute !important; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+/* 12. RESPONSIVE BREAKPOINTS */
+/* Desktop: default */
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; text-align: center; padding: var(--gap-md); }
+  .hero-image img { max-width: 360px; }
+  form { grid-template-columns: 1fr; padding: 1.25rem; }
+  .feature-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  header { padding: var(--gap-xs) var(--gap-sm); }
+  nav ul { gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+  .hero { padding: var(--gap-md) var(--gap-sm); }
+  .hero-text h1 { font-size: 1.6rem; }
+  .language-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+  .why-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .feature-card { padding: 1rem; }
+  form { padding: 1rem; gap: var(--gap-xs); }
+  .btn { padding: 0.5rem 0.9rem; }
+  .hero-image img { max-width: 300px; }
+}
+
+/* Small mobile (third breakpoint) */
+@media (max-width: 480px) {
+  header { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .logo { font-size: 1.05rem; }
+  nav ul { flex-direction: column; gap: 0.4rem; }
+  .hero-text h1 { font-size: 1.35rem; }
+  .hero-text p { font-size: 0.95rem; }
+  .hero { padding: 1.5rem 0.75rem; }
+  .hero-image { order: 2; }
+  .hero-text { order: 1; }
+  .feature-grid, .language-grid, .why-grid { gap: 0.6rem; }
+  .feature-card, .language-card, .why-card { padding: 0.9rem; border-radius: 8px; }
+  form { padding: 0.85rem; }
+  input, select, textarea { font-size: 0.95rem; }
+  .btn-submit { width: 100%; padding: 0.65rem; font-size: 1rem; }
+  footer { font-size: 0.85rem; padding: 0.75rem; }
+}
