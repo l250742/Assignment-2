@@ -53,7 +53,7 @@ The goal of LanguageLift is to make language learning **simple, accessible, and 
 
 ---
 
-## Validator Proofs
+# **Validator Proofs**
 
 ### HTML Validation (W3C Markup Validator)
 ![HTML Validation Proof](assets/w3c-html-validation.png)
