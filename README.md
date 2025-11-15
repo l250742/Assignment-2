@@ -53,18 +53,18 @@ The goal of LanguageLift is to make language learning **simple, accessible, and 
 
 ---
 
-## ✅ Validator Proofs
+## Validator Proofs
 
 ### HTML Validation (W3C Markup Validator)
-![HTML Validation Proof](assets/HTML Validation Proof.png)
+![HTML Validation Proof](assets/w3c-html-validation.png)
 *Screenshot: W3C Markup Validator showing no errors (or list of warnings) — captured on 16-11-2025.*
 
-[Validate HTML online](https://validator.w3.org/) — paste your `index.html` or upload file.
+[Validate HTML online](https://validator.w3.org/)
 
 ---
 
 ### CSS Validation (W3C CSS Validator)
-![CSS Validation Proof](assets/CSS Validation Proof.png)
+![CSS Validation Proof](assets/w3c-css-validation.png)
 *Screenshot: W3C CSS Validator showing no errors (or list of warnings) — captured on 16-11-2025.*
 
-[Validate CSS online](https://jigsaw.w3.org/css-validator/) — paste your `styles.css` or upload file.
+[Validate CSS online](https://jigsaw.w3.org/css-validator/)
