@@ -59,7 +59,7 @@ The goal of LanguageLift is to make language learning **simple, accessible, and 
 ![HTML Validation Proof](assets/w3c-html-validation.png)
 *Screenshot: W3C Markup Validator showing no errors (or list of warnings) — captured on 16-11-2025.*
 
-[Validate HTML online](https://validator.w3.org/)
+Validated from: [Validate HTML online](https://validator.w3.org/)
 
 ---
 
@@ -67,4 +67,4 @@ The goal of LanguageLift is to make language learning **simple, accessible, and 
 ![CSS Validation Proof](assets/w3c-css-validation.png)
 *Screenshot: W3C CSS Validator showing no errors (or list of warnings) — captured on 16-11-2025.*
 
-[Validate CSS online](https://jigsaw.w3.org/css-validator/)
+Validated from : [Validate CSS online](https://jigsaw.w3.org/css-validator/)
