@@ -10,106 +10,42 @@ The goal of LanguageLift is to make language learning **simple, accessible, and 
 
 # 🎨 **DESIGN RATIONALE — LanguageLift Website**
 
-The LanguageLift mini-site is designed with clarity, accessibility, and modern UI principles. Below is the reasoning behind all major design choices:
+1. **High-contrast color palette**
+   Bold, accessible colors (deep purple, bright yellow, white) ensure strong visual contrast, improving readability, focus indicators, and overall accessibility in accordance with WCAG guidelines.
 
-### **1. High-Contrast Visual Theme**
+2. **Semantic HTML structure**
+   The site uses `<header>`, `<main>`, `<section>`, `<article>`, `<form>`, and `<footer>` to organize content logically. This improves SEO, ensures better screen-reader interpretation, and creates a predictable document flow.
 
-A bold contrast palette of deep purples, bright yellows, and clean whites ensures:
+3. **CSS Grid for the main layout**
+   Grid defines the large-scale structure of the page, including the hero section, feature area, pricing plans, and form layout. It provides consistent alignment and smooth responsiveness across breakpoints.
 
-* WCAG-compliant readability
-* clear visual hierarchy
-* standout interactive elements (buttons, cards, form fields)
+4. **Flexbox for internal component alignment**
+   Inside cards, FAQs, buttons, and nav elements, Flexbox handles spacing, vertical alignment, and stacking on smaller screens. This keeps each component clean and adaptable without breaking.
 
-This enhances accessibility for users with visual impairments and improves the overall aesthetic.
+5. **Three clear responsive breakpoints**
 
-### **2. Semantic, Accessible Structure**
+   * **Desktop (default)**: full layout, multi-column grid
+   * **Tablet (max-width: 1024px)**: reduced grid columns, moderate scaling
+   * **Mobile (max-width: 768px)**: stacked layout, simplified spacing and typography
+     These ensure the layout remains intentional and easy to navigate on all device sizes.
 
-All content uses proper HTML5 semantics — `<header>`, `<main>`, `<section>`, `<article>`, `<footer>`, `<form>` — allowing:
+6. **CSS-only interactivity**
+   Without JavaScript, interactivity is achieved through:
 
-* better screen-reader navigation
-* improved keyboard traversal
-* structured document flow
+   * hover animations
+   * card elevation/shadow transitions
+   * focus-visible styling for keyboard navigation
+   * `<details><summary>` for expandable FAQs
+     This adds engagement while staying within project restrictions.
 
-Forms use `<label>`, `<fieldset>`, `<legend>`, and `:focus-visible` for best accessibility.
+7. **Accessible form design**
+   All inputs use proper `<label>` associations, logical grouping with `<fieldset>` and `<legend>`, and visible focus indicators. Custom checkboxes and radio buttons are styled while maintaining keyboard and screen-reader compatibility.
 
-### **3. CSS Grid for Global Layout**
+8. **Consistent design system**
+   The site uses unified values for spacing, border-radius, button shapes, shadows, and typography. This creates a cohesive brand identity and makes the UI easier for users to scan and understand.
 
-CSS Grid provides a stable, responsive foundation for:
-
-* hero section
-* feature blocks
-* plans
-* form layout
-* footer columns
-
-Grid ensures even spacing and predictable scaling across all screen sizes.
-
-### **4. Flexbox for Individual Components**
-
-Flexbox is used inside cards, buttons, nav, and FAQs for:
-
-* easy alignment
-* flexible stacking
-* smooth wrapping on mobile
-
-This maintains usability even with dynamic content or long text.
-
-### **5. Three Clear Breakpoints**
-
-The interface adapts at:
-
-* **Desktop (default)**
-* **Tablet (max-width: 1024px)**
-* **Mobile (max-width: 768px)**
-
-Each breakpoint adjusts:
-
-* grid columns
-* spacing
-* font scale
-* navigation layout
-
-This ensures the layout feels deliberate at every size, not “squeezed.”
-
-### **6. CSS-Only Interactivity**
-
-To keep compliance with the assignment restrictions (no JavaScript), interactivity is implemented using:
-
-* hover lift effects
-* animated buttons
-* `<details>` and `<summary>` for FAQs
-* focus-visible states
-* card shadow transitions
-
-This gives the site a dynamic feel without scripts.
-
-### **7. Consistent Component Design System**
-
-All components follow a shared set of design tokens:
-
-* radius: soft, rounded corners
-* spacing scale: xs, sm, md, lg
-* typography: clean sans-serif
-* shadows: small elevation for cards
-* buttons: pill-shaped, high-contrast CTA styling
-
-This ensures a cohesive, brand-consistent appearance.
-
-### **8. Custom SVG Illustration**
-
-A handcrafted SVG in the hero section:
-
-* reinforces theme (language learning)
-* adds meaningful visual interest
-* loads instantly (vector-based)
-* maintains crisp detail at all screen sizes
+9. **Custom SVG illustration**
+   A lightweight, scalable SVG reinforces the language-learning theme. It loads quickly, remains crisp on all displays, and enhances visual branding without impacting performance.
 
 ---
 
-If you want, I can also create:
-
-📌 A **Design System section** (color variables, typography, spacing tokens)
-📌 A **Feature justification section** for a more academic-style README
-📌 A **short version** of seed + rationale for class submissions
-
-Just tell me!
